@@ -45,7 +45,7 @@ class PlayerConn:
 @dataclass
 class RoomState:
     name: str
-    players: List[str] = field(default_factory=list)  # player ids
+    players: List[str] = field(default_factory=list)  # List of player IDs in the room
     created_by: str = ""
     chat_log: List[Tuple[str, str]] = field(default_factory=list)  # (name, msg)
 
@@ -93,7 +93,7 @@ class RpsServer:
     def stop(self):
         self._stop.set()
 
-    # ----------------------- protocol helpers -----------------------
+    # ------------------- protocol helpers --------------------
     def _send(self, pid: str, msg_type: str, data: Optional[dict] = None) -> None:
         p = self.players.get(pid)
         if not p or not p.alive:
@@ -211,7 +211,7 @@ class RpsServer:
         m1 = r.moves.get(p1)
         m2 = r.moves.get(p2)
 
-        # timeout logic
+        # update timeout logic
         if m1 is None and m2 is None:
             winner = None
             result = "draw_timeout"
@@ -312,6 +312,7 @@ class RpsServer:
     def _winner(p1: str, m1: str, p2: str, m2: str) -> Optional[str]:
         if m1 == m2:
             return None
+        # Standard RPS winning combinations: rock > scissors, scissors > paper, paper > rock
         if (m1, m2) in [("rock", "scissors"), ("scissors", "paper"), ("paper", "rock")]:
             return p1
         return p2
