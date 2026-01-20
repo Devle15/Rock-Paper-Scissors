@@ -45,7 +45,7 @@ class PlayerConn:
 @dataclass
 class RoomState:
     name: str
-    players: List[str] = field(default_factory=list)  # List of player IDs in the room
+    players: List[str] = field(default_factory=list)  # player ids
     created_by: str = ""
     chat_log: List[Tuple[str, str]] = field(default_factory=list)  # (name, msg)
 
@@ -86,6 +86,7 @@ class RpsServer:
             while not self._stop.is_set():
                 client_sock, addr = self.server_sock.accept()
                 client_sock.settimeout(None)
+                # Spawn a new thread for each client to handle concurrent requests
                 threading.Thread(target=self._handle_client, args=(client_sock, addr), daemon=True).start()
         finally:
             safe_close(self.server_sock)
@@ -312,7 +313,6 @@ class RpsServer:
     def _winner(p1: str, m1: str, p2: str, m2: str) -> Optional[str]:
         if m1 == m2:
             return None
-        # Standard RPS winning combinations: rock > scissors, scissors > paper, paper > rock
         if (m1, m2) in [("rock", "scissors"), ("scissors", "paper"), ("paper", "rock")]:
             return p1
         return p2
