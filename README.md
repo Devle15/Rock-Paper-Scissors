@@ -2,7 +2,7 @@
 
 Mini game **Rock–Paper–Scissors** sử dụng kỹ thuật **lập trình Socket** theo mô hình **Multi Client–Server**.
 
-## Điểm nổi bật (để lấy điểm cao)
+## Điểm nổi bật
 - ✅ Multi-client TCP server (nhiều client kết nối đồng thời)
 - ✅ Lobby + quản lý **phòng (room)**: list/create/join/leave
 - ✅ **QuickPlay**: xếp hàng (queue) để ghép cặp tự động
