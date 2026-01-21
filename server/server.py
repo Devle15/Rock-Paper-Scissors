@@ -165,7 +165,7 @@ class RpsServer:
             self._send(pid, "LEFT_ROOM", {"room": room_name})
             self._broadcast_room(room_name, "ROOM_UPDATE", {"room": room_name, "players": [self.players[x].name for x in r.players]})
 
-        # cleanup empty room (except quick rooms)
+        # cleanup empty room 
         if len(r.players) == 0:
             del self.rooms[room_name]
 
