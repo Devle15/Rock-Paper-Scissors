@@ -336,6 +336,7 @@ class RpsServer:
 
     # ----------------------- client handling -----------------------
     def _handle_client(self, client_sock: socket.socket, addr: Tuple[str, int]):
+        # Set socket options for optimal game performance (low latency)
         client_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
         jls = JsonLineSocket(client_sock)
         pid = uuid.uuid4().hex
