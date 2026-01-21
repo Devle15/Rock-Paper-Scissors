@@ -1,4 +1,4 @@
-# NhomX - Rock Paper Scissors (Socket Multi Client-Server)
+# Nhom17 - Rock Paper Scissors (Socket Multi Client-Server)
 
 Mini game **Rock–Paper–Scissors** sử dụng kỹ thuật **lập trình Socket** theo mô hình **Multi Client–Server**.
 
@@ -43,19 +43,3 @@ python -m client.client --host 127.0.0.1 --port 8888 --name Hau
 - `/chat <message>` : chat
 - `/move rock|paper|scissors` : chọn nước đi
 - `/leave` : rời phòng
-
-## Ảnh chụp sản phẩm (để nộp bài)
-Chụp tối thiểu:
-1. 1 ảnh Server đang chạy (log match/queue)
-2. 2–3 ảnh Client: (1 đang chơi, 1 đang chờ queue, 1 chat/leaderboard)
-
-Thư mục gợi ý: `screenshots/`
-
-## Nộp bài
-Nén thư mục dự án thành file:
-**`NhomX-TenDeTai.zip`**
-
-Gợi ý tên: `NhomX-RockPaperScissors-Socket.zip`
-
-## Gợi ý Git history (nhóm 6 người)
-Xem `docs/GIT_WORKFLOW.md` và `docs/COMMIT_PLAN.md`.
