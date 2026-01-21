@@ -23,16 +23,22 @@ def handle_client(conn, addr):
             # Thêm lệnh /help (Add /help command)
             if data == '/help':
                 help_menu = (
-                    "\n--- HƯỚNG DẪN ---\n"
-                    "Lệnh: rock, paper, scissors\n"
-                    "Thoát: /quit\n"
-                    "-----------------\n"
+                    "\n" + "="*30 + "\n"
+                    "--- 🎮 HƯỚNG DẪN CHƠI GAME 🎮---\n"
+                    " " + "-"*28 + "\n"
+                    "Các lệnh bạn có thể dùng:\n"
+                    "• rock/paper/scissor : Ra đòn\n"
+                    "• /help              : Xem hướng dẫn\n"
+                    "• /quit              : Thoát game\n"
+                    " " + "-"*28 + "\n"
+                    "Chúc bạn chơi game vui vẻ ✨\n"
+                    " " + "="*30 + "\n"
                 )
                 conn.sendall(help_menu.encode('utf-8'))
             
             # Phản hồi khi người dùng chọn
             elif data in ['rock', 'paper', 'scissors']:
-                conn.sendall(f"Bạn đã chọn {data.upper()}. Đang đợi kết quả...".encode('utf-8'))
+                conn.sendall(f"⭐ Bạn đã chọn {data.upper()}. Đang đợi kết quả...".encode('utf-8'))
             
             else:
                 conn.sendall("❌ Lệnh không rõ. Gõ /help để xem trợ giúp.".encode('utf-8'))
